@@ -5,6 +5,9 @@
  */
 package app;
 
+import java.util.HashSet;
+import java.util.Set;
+import model.CorreoElectronico;
 import model.Profesor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -27,7 +30,14 @@ public class Main {
         sessionfactory = config.buildSessionFactory();
         
         //CREAMOS UN OBJETO
-        Profesor profesor=new Profesor(2, "Pepe", "García", "Pérez");
+        Profesor profesor=new Profesor(8, "Pepe", "García", "Pérez");
+        Set<CorreoElectronico> correosElectronicos = new HashSet<>();
+        correosElectronicos.add(new CorreoElectronico(3, "sara@yahoo.com", profesor));
+        correosElectronicos.add(new CorreoElectronico(2, "sara@yahoo.com", profesor));
+        correosElectronicos.add(new CorreoElectronico(1, "sara@yahoo.com", profesor));
+        
+        profesor.setCorreosElectronicos(correosElectronicos);
+
         
         //CREAR UNA SESION
         Session session=sessionfactory.openSession();
