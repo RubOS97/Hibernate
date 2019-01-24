@@ -21,6 +21,11 @@ public class Profesor implements Serializable {
     public Profesor() {
     }
 
+    @Override
+    public String toString() {
+        return "Profesor{" + "id=" + id + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + '}';
+    }
+
     public Profesor(int id, String nombre, String ape1, String ape2) {
         this.id = id;
         this.nombre = nombre;
